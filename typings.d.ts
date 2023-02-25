@@ -1,0 +1,3 @@
+interface YoutubeSearchData {
+	originalQuery: string;
+}
