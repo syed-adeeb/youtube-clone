@@ -7,15 +7,14 @@ import {
 	UserPlusIcon,
 } from "@heroicons/react/24/outline";
 import { fetchFromAPI } from "../utils/fetchFromApi";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 import axios from "axios";
 
 type Props = {};
 
 const Navbar = ({}: Props) => {
-	const [selectedCategory, setSelectedCategory] = useState("music");
-	const [videos, setVideos] = useState([]);
-	const axios = require("axios");
+	const { data: session } = useSession();
 
 	return (
 		<header>
@@ -52,7 +51,7 @@ const Navbar = ({}: Props) => {
 				</div>
 				<div className="flex items-center space-x-2">
 					<VideoCameraIcon className=" navButtons" />
-					<div className="relative navButtons">
+					<div className="relative navButtons ">
 						<BellIcon className="" />
 						<div className="absolute top-1 right-1 left-6 bg-red-600 rounded-full w-8 h-6 -px-1 cursor-pointer">
 							<h4 className=" text-center mb-2">
@@ -60,7 +59,22 @@ const Navbar = ({}: Props) => {
 							</h4>
 						</div>
 					</div>
-					<UserPlusIcon className=" navButtons " />
+					<div className="flex ml-2">
+						{!session ? (
+							<UserPlusIcon className=" navButtons " onClick={() => signIn()} />
+						) : (
+							<div className="mx-4 border border-white/30 rounded-full w-10 h-10">
+								<Image
+									src={`${session?.user?.image}`}
+									width={40}
+									height={40}
+									className="navButtons "
+									objectFit="contain"
+									onClick={() => signOut()}
+								/>
+							</div>
+						)}
+					</div>
 				</div>
 			</section>
 			<div className="relative items-center shadow h-10  w-full px-10  flex  mx-auto sm:hidden">
