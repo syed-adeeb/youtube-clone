@@ -5,6 +5,7 @@ import { fetchFromAPI } from "../utils/fetchFromApi";
 import axios from "axios";
 import { getSession } from "next-auth/react";
 import Sidebar from "../components/Sidebar";
+import Feed from "../components/Feed";
 type Props = {
 	data: YoutubeSearchData[];
 	session: any;
@@ -16,6 +17,7 @@ const Home = ({ session }: Props) => {
 			<Navbar />
 			<main className="flex ">
 				<Sidebar />
+				<Feed />
 			</main>
 		</div>
 	);

@@ -6,14 +6,13 @@ import {
 	BellIcon,
 	UserPlusIcon,
 } from "@heroicons/react/24/outline";
-import { fetchFromAPI } from "../utils/fetchFromApi";
 import { useSession, signIn, signOut } from "next-auth/react";
-
-import axios from "axios";
+import { useRouter } from "next/router";
 
 type Props = {};
 
 const Navbar = ({}: Props) => {
+	const router = useRouter();
 	const { data: session } = useSession();
 
 	return (
@@ -21,7 +20,9 @@ const Navbar = ({}: Props) => {
 			<section className="flex items-center justify-between px-8 py-2 space-x-2">
 				{/* Left */}
 				<div className="flex items-center">
-					<div className="relative h-[28px] w-[60px] sm:hidden">
+					<div
+						className="relative h-[28px] w-[60px] sm:hidden cursor-pointer"
+						onClick={() => router.push("../index")}>
 						<Image
 							src="/logo.webp"
 							layout="fill"
@@ -29,7 +30,9 @@ const Navbar = ({}: Props) => {
 							objectFit="contain"
 						/>
 					</div>
-					<div className="hidden sm:inline-flex">
+					<div
+						className="hidden sm:inline-flex cursor-pointer"
+						onClick={() => router.push("../")}>
 						<Image
 							src="/logo-2.webp"
 							width={120}
