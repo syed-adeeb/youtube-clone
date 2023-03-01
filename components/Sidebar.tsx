@@ -20,7 +20,7 @@ type Props = {};
 
 const Sidebar = (props: Props) => {
 	return (
-		<div className="flex-col  border-r border-white/20 w-[18%] h-[95vh] px-5 hidden xl:flex bg-gradient-to-br from-black to-gray-900/40">
+		<div className="flex-col sticky top-0  border-r border-white/20 w-[18%] h-[95vh] px-5 hidden xl:flex bg-gradient-to-br from-black to-gray-900/40">
 			<div className="flex flex-col space-y-2 justify-between overflow-y-scroll scrollbar-hide ">
 				<SidebarColumn Icon={HomeIcon} title={"New"} />
 				<SidebarColumn Icon={UserIcon} title={"CodeWithHarry"} />
