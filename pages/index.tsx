@@ -11,6 +11,7 @@ type Props = {
 	session: any;
 };
 
+
 const Home = ({ session }: Props) => {
 	return (
 		<div className="">

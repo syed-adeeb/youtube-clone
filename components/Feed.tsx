@@ -14,7 +14,6 @@ const Feed = (props: Props) => {
 		const item = localStorage.getItem("title");
 		setTitle(`${item}`);
 	});
-
 	useEffect(() => {
 		fetchFromAPI(`${url}${title}`).then((data: any) => setVideos(data.items));
 	}, [title]);
