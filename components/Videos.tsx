@@ -1,5 +1,7 @@
 import React from "react";
 import Channel from "./Channel";
+import Playlist from "./Playlist";
+import Shelf from "./Shelf";
 import Video from "./Video";
 
 type Props = {
@@ -13,8 +15,9 @@ const Videos = ({ videos }: Props) => {
 		<div className="flex flex-wrap ">
 			{videos?.map((video: any, i: number) => (
 				<div className="p-4 md:w-1/3" key={i}>
-					{video.type === "video" && <Video video={video} />}
 					{video.type === "channel" && <Channel channel={video} />}
+					{video.type === "video" && <Video video={video} />}
+					{video.type === "playlist" && <Playlist playlist={video} />}
 				</div>
 			))}
 			{!videos && (

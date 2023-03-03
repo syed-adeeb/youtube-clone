@@ -17,7 +17,7 @@ const Navbar = ({}: Props) => {
 
 	return (
 		<header>
-			<section className="flex items-center justify-between px-8 py-2 space-x-2">
+			<section className="flex items-center justify-between px-8 py-2 space-x-2 w-[100vw]">
 				{/* Left */}
 				<div className="flex items-center">
 					<div

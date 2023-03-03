@@ -20,10 +20,6 @@ const Feed = (props: Props) => {
 
 	return (
 		<div className="p-4">
-			<h4 className="text-2xl font-semibold mb-10">
-				<span className="text-[red]">{title}</span> videos
-			</h4>
-
 			<Videos videos={videos} />
 		</div>
 	);
