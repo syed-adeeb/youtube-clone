@@ -7,10 +7,9 @@ import { getSession } from "next-auth/react";
 import Sidebar from "../components/Sidebar";
 import Feed from "../components/Feed";
 type Props = {
-	data: YoutubeSearchData[];
+	data: any[];
 	session: any;
 };
-
 
 const Home = ({ session }: Props) => {
 	return (
