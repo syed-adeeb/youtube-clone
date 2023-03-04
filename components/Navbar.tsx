@@ -13,6 +13,7 @@ type Props = {};
 
 const Navbar = ({}: Props) => {
 	const router = useRouter();
+	const [data, setData] = useState("");
 	const { data: session } = useSession();
 
 	return (
@@ -45,11 +46,20 @@ const Navbar = ({}: Props) => {
 				<div className="relative items-center shadow h-10 max-w-2xl w-full px-10 hidden sm:flex">
 					<input
 						type="text"
+						value={data}
+						onChange={(e) => setData(e.target.value)}
 						placeholder="Search"
 						className="px-4  py-2 bg-transparent outline-none border border-white/10 rounded-full focus:outline-blue-500 focus:border-none flex-grow"
 					/>
 					<div className="bg-[rgb(34,34,34)] absolute right-[38px] cursor-pointer  h-[42px] w-16 flex items-center justify-center rounded-r-full border border-white/10">
-						<MagnifyingGlassIcon className="h-6 w-6 " />
+						<MagnifyingGlassIcon
+							className="h-6 w-6 "
+							onClick={(e) => {
+								e.preventDefault();
+								localStorage.setItem("title", `${data.replace(" ", "")}`);
+								router.push("/");
+							}}
+						/>
 					</div>
 				</div>
 				<div className="flex items-center space-x-2">
@@ -84,10 +94,19 @@ const Navbar = ({}: Props) => {
 				<input
 					type="text"
 					placeholder="Search"
+					value={data}
+					onChange={(e) => setData(e.target.value)}
 					className="px-4  py-2 bg-transparent outline-none border border-white/10 rounded-full focus:outline-blue-500 focus:border-none flex-grow"
 				/>
 				<div className="bg-[rgb(34,34,34)] absolute right-[38px] cursor-pointer  h-[42px] w-16 flex items-center justify-center rounded-r-full border border-white/10">
-					<MagnifyingGlassIcon className="h-6 w-6 " />
+					<MagnifyingGlassIcon
+						className="h-6 w-6 "
+						onClick={(e) => {
+							e.preventDefault();
+							localStorage.setItem("title", `${data.replace(" ", "")}`);
+							router.push("/");
+						}}
+					/>
 				</div>
 			</div>
 		</header>

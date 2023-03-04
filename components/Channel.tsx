@@ -4,16 +4,15 @@ import React from "react";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
 type Props = {
-	channel: any;
+	channel: Channel;
 };
 
 const Channel = ({ channel }: Props) => {
-	console.log(channel);
 	const router = useRouter();
 
 	return (
 		<div className="" onClick={() => router.push(channel.url)}>
-			<div className="flex flex-col w-[516px] h-[300px] bg-white/10 rounded-xl p-4">
+			<div className="flex flex-col  md:w-[516px] md:h-[300px] bg-white/10 rounded-xl p-4">
 				<div className="mx-auto">
 					<Image
 						src={channel.bestAvatar.url}

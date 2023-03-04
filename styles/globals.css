@@ -12,4 +12,10 @@
 	.navButtons {
 		@apply h-12 w-12 rounded-full hover:bg-[rgb(36,36,36)] p-3 cursor-pointer transition-all duration-150 ease-in-out active:scale-90;
 	}
+
+	@media (min-width: 1828px) {
+		.\fxl {
+			display: flex;
+		}
+	}
 }

@@ -1,10 +1,9 @@
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import React from "react";
-import { BsArrowBarRight } from "react-icons/bs";
 
 type Props = {
-	playlist: any;
+	playlist: Playlist;
 };
 
 const Playlist = ({ playlist }: Props) => {

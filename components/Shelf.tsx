@@ -2,13 +2,13 @@ import Image from "next/legacy/image";
 import React from "react";
 
 type Props = {
-	shelf: any;
+	shelf: Shelf;
 };
 
 const Shelf = ({ shelf }: Props) => {
 	return (
-		<div>
-			<div>
+		<div className="hidden 3xl:flex">
+			<div className="cursor-pointer flex flex-col">
 				<div className="">
 					<Image
 						src={shelf?.items[0]?.bestThumbnail?.url}

@@ -9,8 +9,6 @@ type Props = {
 };
 
 const Videos = ({ videos }: Props) => {
-	console.log(videos);
-
 	return (
 		<div className="flex flex-wrap ">
 			{videos?.map((video: any, i: number) => (
@@ -18,6 +16,7 @@ const Videos = ({ videos }: Props) => {
 					{video.type === "channel" && <Channel channel={video} />}
 					{video.type === "video" && <Video video={video} />}
 					{video.type === "playlist" && <Playlist playlist={video} />}
+					{video.type === "shelf" && <Shelf shelf={video} />}
 				</div>
 			))}
 			{!videos && (
